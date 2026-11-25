@@ -1,0 +1,100 @@
+/* Services.css */
+.services {
+  padding: 7rem 0;
+  background-color: var(--bg-color);
+  position: relative;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.06) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.25rem;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: var(--shadow-hover);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--brand-primary);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.75rem;
+  transition: var(--transition);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.glass-card:hover .service-icon {
+  background: var(--brand-primary);
+  color: #0F172A;
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+}
+
+.glass-card h3 {
+  font-size: 1.35rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.glass-card p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 5rem 0;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
